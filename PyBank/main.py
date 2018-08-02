@@ -80,7 +80,7 @@ with open(csv_filepath,'r',newline="") as pybank:
     lines = ["Financial Analysis\n",   
              "-------------------\n",
              "Total Months:"  + str(len(m_list)) + "\n"
-             "Total:"  + "$" + str(df_mean) + "\n"
+             "Total:"  + "$" +str(sum(pl_list)) + "\n"
              "Average Change:"  + "$"+str(df_mean)+"\n"
              "Greatest Increase in Profits: " + m_inc + " ($" + str(df_inc)+")\n"
              "Greatest Decrease in Profits: " + m_dec + " ($" + str(df_dec)+")"]
