@@ -3,7 +3,7 @@ import os
 import csv
 
 
-# setup the file location
+# setup the file location 
 filepath = "C:\\Users\\anany\\Desktop\\python_files"
 csv_filepath = os.path.join(filepath,"budget_data.csv")
 
@@ -53,7 +53,7 @@ with open(csv_filepath,'r',newline="") as pybank:
     # this will find the greatest decrease from the change list
     df_dec = min(df_list)
     # this will get us the average change between months
-    df_mean = sum(df_list)/len(df_list)
+    df_mean = round(sum(df_list)/len(df_list),2)
 
     # find the profit/loss record that has the greatest increase
     pl_inc = dict_df_pl[df_inc]
@@ -67,9 +67,26 @@ with open(csv_filepath,'r',newline="") as pybank:
    
     
     # print the output
-    print("Total Months:"  + str(len(m_list)))
-    print("Total:" + str(sum(pl_list)))
-    print("Average Change:" + str(df_mean))
+    print("Financial Analysis")
+    print("-------------------")
+    print("Total Months: "  + str(len(m_list)))
+    print("Total: " +"$"+str(sum(pl_list)))
+    print("Average Change: " + "$"+str(df_mean))
     print("Greatest Increase in Profits: " + m_inc + " ($" + str(df_inc)+")")
     print("Greatest Decrease in Profits: " + m_dec + " ($" + str(df_dec)+")")
     
+    #export to text file 
+    text_file = open("output_pybank.txt", "w")
+    lines = ["Financial Analysis\n",   
+             "-------------------\n",
+             "Total Months:"  + str(len(m_list)) + "\n"
+             "Total:"  + "$" + str(df_mean) + "\n"
+             "Average Change:"  + "$"+str(df_mean)+"\n"
+             "Greatest Increase in Profits: " + m_inc + " ($" + str(df_inc)+")\n"
+             "Greatest Decrease in Profits: " + m_dec + " ($" + str(df_dec)+")"]
+    text_file.writelines(lines)
+    text_file.close()
+
+
+        
+
