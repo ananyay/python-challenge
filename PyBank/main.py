@@ -1,11 +1,11 @@
 # import libraries
 import os
 import csv
-
+import pathlib
 
 # setup the file location 
-filepath = "C:\\Users\\anany\\Desktop\\python_files"
-csv_filepath = os.path.join(filepath,"budget_data.csv")
+filepath = pathlib.Path(__file__).parent
+csv_filepath = os.path.join(filepath,"resources","budget_data.csv")
 
 # open the file
 with open(csv_filepath,'r',newline="") as pybank:
@@ -76,7 +76,8 @@ with open(csv_filepath,'r',newline="") as pybank:
     print("Greatest Decrease in Profits: " + m_dec + " ($" + str(df_dec)+")")
     
     #export to text file 
-    text_file = open("output_pybank.txt", "w")
+    output_path = os.path.join(filepath,"output_pybank.txt")
+    text_file = open(output_path,"w")
     lines = ["Financial Analysis\n",   
              "-------------------\n",
              "Total Months:"  + str(len(m_list)) + "\n"
