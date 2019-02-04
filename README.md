@@ -14,9 +14,6 @@ The greatest increase in profits (date and amount) over the entire period
 
 The greatest decrease in losses (date and amount) over the entire period
 
-The result is 
-![alt text](https://github.com/ananyay/python-challenge/blob/master/PyBank/output_pybank.txt)
-
 ### PyPoll
 Python Script for analysis small, rural town vote-counting process.Provided a set of poll data called election_data.csv. The dataset is composed of three columns: Voter ID, County, and Candidate.
 
